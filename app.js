@@ -45,6 +45,7 @@ app.use(logger('dev'));
 app.use(bParser.json());
 app.use(bParser.urlencoded({extended: true}));
 app.use(compression());
+app.use(express.static(`${__dirname}/ui-react/build`));
 //=============================================================================
 /**
  * Routes
