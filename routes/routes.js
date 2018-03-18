@@ -35,7 +35,7 @@ router.post('/send_message', async (req, res) => {
   }
 })
 router.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../ui-react/build', 'index.html'));
+  res.sendFile(path.resolve(__dirname, './ui-react/build', 'index.html'));
 })
 //=============================================================================
 /**
