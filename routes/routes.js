@@ -6,6 +6,7 @@
 const
   express = require('express'),
   router = express.Router(),
+  path = require('path'),
   talkToBot = require('../utils/ChatBot');
 //=============================================================================
 /**
@@ -32,6 +33,9 @@ router.post('/send_message', async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error })
   }
+})
+router.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../ui-react/build', 'index.html'));
 })
 //=============================================================================
 /**
