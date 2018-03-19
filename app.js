@@ -9,7 +9,6 @@ const
   bParser = require('body-parser'),
   compression = require('compression'),
   path = require('path'),
-  config = require('./config/config'),
   cors = require('cors');
 //=============================================================================
 /**
@@ -24,7 +23,7 @@ const app = express();
 //=============================================================================
 const
   port = process.env.PORT || 3030,
-  env = config.env,
+  env = process.env.NODE_ENV,
   routes = require('./routes/routes');
 //=============================================================================
 /**
