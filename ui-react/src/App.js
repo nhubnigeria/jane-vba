@@ -25,8 +25,12 @@ export default class App extends Component {
   processApiResponse(apiResponse) {
     let botResponse = apiResponse.data.responseFromBot
     let oldMessages = this.state.messages
+    let newMessages = []
+    botResponse.forEach(response => {
+      newMessages = [...newMessages, <ChatBubble {...this.createChatBubbleProps('received', response)}/>]
+    });
     this.setState(prevState => ({
-      messages: [...oldMessages, <ChatBubble {...this.createChatBubbleProps('received', botResponse)}/>],
+      messages: [...oldMessages, newMessages],
       waiting: false
     }))
     this.messagesEnd.scrollIntoView({ behavior: "smooth" })

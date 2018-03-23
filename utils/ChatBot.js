@@ -64,7 +64,7 @@ module.exports = async function (data) {
 
       if (response.output.text.length != 0) {
         chatContext = response.context
-        resolve(response.output.text[0])
+        resolve(response.output.text)
       }
     })
   })
